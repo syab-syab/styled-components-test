@@ -1,11 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import StyledComponentExample from './components/StyledComponentExample';
 
 function App() {
   return (
     <div className="App">
-      <h1>Styled-componentのテスト</h1>
+      <StyledComponentExample />
     </div>
   );
 }
