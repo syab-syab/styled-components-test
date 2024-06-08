@@ -1,13 +1,30 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import StyledComponentExample from './components/StyledComponentExample';
+import EasyInfo from './components/EasyInfo';
+import Main from './components/Main';
 
 function App() {
+  const textLightMode: string = `
+    color: black;
+  `
+
+  const backgroundLightMode: string = `
+    background: #FDFFE2;
+  `
+
+
+
   return (
-    <div className="App">
-      <StyledComponentExample />
-    </div>
+    <>
+      <EasyInfo value={"-PatienceDay Clock-"} />
+      <Main
+        fontColor={textLightMode}
+        backgroundColor={backgroundLightMode}
+      />
+      <EasyInfo value={"©Swiss Army Apps"} />
+
+    </>
   );
 }
 

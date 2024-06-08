@@ -11,15 +11,28 @@ const StyledComponentExample = () => {
     }
   `;
 
-const Wrapper = styled.section`
+  const Wrapper = styled.section`
     padding: 4em;
     background: papayawhip;
   `;
+
+  const tmp: string = `
+    font-size: 3rem;
+    color: blue;
+  `
+  
+
+  const Test = styled.p`
+    ${tmp}
+  `
   return (
     <Wrapper >
       <Title >
           Hello World!
       </Title>
+      <Test>
+        Test Text
+      </Test>
   </Wrapper>
   )
 }
