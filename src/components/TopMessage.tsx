@@ -2,18 +2,28 @@ import React from 'react'
 import styled from 'styled-components'
 
 type Props = {
-  backgroundColor: string
+  lightDark: boolean
 }
 
 const TopMessage = (props: Props) => {
+  const backgroundLightMode: string = `
+    background: #5A72A0;
+  `
+
+  const backgroundDarkMode: string = `
+    background: #FDFFE2;
+  `
+
   // section以外の方が良いかも
   const MessageSection = styled.p`
     border: dashed black;
-    width: 20rem;
+    width: 45rem;
+    font-size: 2.6rem;
+    color: black;
     font-weight: bold;
     display: inline-block;
     text-align: center;
-    ${props.backgroundColor}
+    ${props.lightDark ? backgroundLightMode : backgroundDarkMode};
   `
 
   return (

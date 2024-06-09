@@ -3,32 +3,38 @@ import styled from 'styled-components'
 import TopMessage from './TopMessage'
 
 type Props = {
-  backgroundColor: string
-  fontColor: string
+  lightOrDark: boolean
 }
 
 const Main = (props: Props) => {
 
+  const lightMode: string = `
+    color: black;
+    background: #FDFFE2;
+  `
+
+  const darkMode: string = `
+    color: #FDFFE2;
+    background: #223A70;
+  `
+
   const Wrapper = styled.main`
     text-align: center;
-    ${props.backgroundColor};
-    ${props.fontColor}
+    ${props.lightOrDark ? lightMode : darkMode};
     margin: 0 auto;
-    padding: 10rem 0 10rem;
+    padding: 5rem 0 5rem;
   `
 
   const MainTitle = styled.h1`
-    font-weight: bold;
+    font-weight: normal;
     margin: 0 auto;
+    font-size: 7.2rem;
   `
 
   const SubTitle = styled.h2`
-    font-weight: bold;
+    font-weight: normal;
     margin: 0 auto;
-  `
-
-  const backgroundMessageLightMode: string = `
-    background: #5A72A0;
+    font-size: 4.8rem
   `
 
   return (
@@ -39,7 +45,7 @@ const Main = (props: Props) => {
       <SubTitle>
         -PatienceDay Clock-
       </SubTitle>
-      <TopMessage backgroundColor={backgroundMessageLightMode} />
+      <TopMessage lightDark={props.lightOrDark} />
     </Wrapper>
   )
 }
