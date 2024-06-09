@@ -1,13 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import TopMessage from './TopMessage'
-import CountItem from './CountItem'
+import CountSection from './CountSection'
 
 type Props = {
   lightOrDark: boolean
 }
 
 const Main = (props: Props) => {
+  const validateData: boolean = true
+
   // 500pxでメディアクエリ
 
   const lightMode: string = `
@@ -20,9 +22,19 @@ const Main = (props: Props) => {
     background: #223A70;
   `
 
+  const scroll: string = `
+    overflow-y: scroll;
+  `
+
+  const nonScroll: string = `
+    overflow-y: visible;
+  `
+
   // heightは画面全コンテンツが画面内に収まるように
+  // 画面内スクロールはこっちで指定した方が良いかも
   const Wrapper = styled.main`
     height: 90vh;
+    ${validateData ? scroll : nonScroll}
     text-align: center;
     ${props.lightOrDark ? lightMode : darkMode};
     margin: 0 auto;
@@ -54,20 +66,39 @@ const Main = (props: Props) => {
     }
   `
 
-  return (
-    <Wrapper>
-      <MainTitle>
-        世界忍耐時計
-      </MainTitle>
-      <SubTitle>
-        -PatienceDay Clock-
-      </SubTitle>
-      <TopMessage lightDark={props.lightOrDark} />
-      {/* データが無い時は↑ */}
-      {/* ある時は↓ */}
-      <CountItem />
-    </Wrapper>
-  )
+  // return (
+  //   <Wrapper>
+
+  //     <MainTitle>
+  //       世界忍耐時計
+  //     </MainTitle>
+  //     <SubTitle>
+  //       -PatienceDay Clock-
+  //     </SubTitle>
+  //     <TopMessage lightDark={props.lightOrDark} />
+
+  //     <CountSection />
+  //   </Wrapper>
+  // )
+  if(validateData) {
+    return (
+      <Wrapper>
+        <CountSection darkOrLight={props.lightOrDark} />
+      </Wrapper>
+    )
+   } else {
+      return(
+      <Wrapper>
+        <MainTitle>
+          世界忍耐時計
+        </MainTitle>
+        <SubTitle>
+          -PatienceDay Clock-
+        </SubTitle>
+        <TopMessage lightDark={props.lightOrDark} />  
+      </Wrapper>
+      )
+    }
 }
 
 export default Main
