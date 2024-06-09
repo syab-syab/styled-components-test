@@ -5,6 +5,7 @@ import EasyInfo from './components/EasyInfo';
 import Main from './components/Main';
 import FixedMenu from './components/FixedMenu';
 import ModeSwichBtn from './components/ModeSwichBtn';
+// import MainWrapper from './components/MainWrapper';
 
 function App() {
 
@@ -23,13 +24,12 @@ function App() {
     <>
       <EasyInfo value={"-PatienceDay Clock-"} tag={true} />
 
-      {/* ライト・ダークモード切替ボタン */}
-      <ModeSwichBtn lightOrDark={lightOrDark} toggleVal={toggleLD} />
+        {/* ライト・ダークモード切替ボタン */}
+        <ModeSwichBtn lightOrDark={lightOrDark} toggleVal={toggleLD} />
         <Main
           lightOrDark={lightOrDark}
         />
         <FixedMenu lightOrDark={lightOrDark} />
-
 
       <EasyInfo value={"©Swiss Army Apps"} tag={false} />
 

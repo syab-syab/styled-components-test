@@ -27,6 +27,13 @@ const ModeSwichBtn = (props: Props) => {
     position: fixed;
     top: 5rem;
     right: 10rem;
+    @media (max-width: 796px) {
+      font-size: 1.6rem;
+      font-weight: bold;
+      position: fixed;
+      top: 3rem;
+      right: 2rem;
+    }
   `
 
   return (

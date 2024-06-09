@@ -33,11 +33,18 @@ const FixedMenu = (props: Props) => {
   `
 
   const MenuItem = styled.div`
+    padding: 1rem 0;
+    vertical-align: center;
     flex-direction: column;
     flex-grow: 1;
     ${props.lightOrDark ? lightMode : darkMode};
     border: solid 1px;
-    font-size: 3rem
+    font-size: 3rem;
+    @media (max-width: 500px) {
+      font-size: 2rem;
+      padding: 2rem 0;
+      font-weight: bold;
+    }
   `
   return (
     <>
