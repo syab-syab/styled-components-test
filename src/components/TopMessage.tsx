@@ -9,8 +9,10 @@ const TopMessage = (props: Props) => {
   // section以外の方が良いかも
   const MessageSection = styled.p`
     border: dashed black;
-    width: auto;
+    width: 20rem;
     font-weight: bold;
+    display: inline-block;
+    text-align: center;
     ${props.backgroundColor}
   `
 

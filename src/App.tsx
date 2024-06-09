@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 import EasyInfo from './components/EasyInfo';
 import Main from './components/Main';
+import FixedMenu from './components/FixedMenu';
 
 function App() {
   const textLightMode: string = `
@@ -17,12 +18,13 @@ function App() {
 
   return (
     <>
-      <EasyInfo value={"-PatienceDay Clock-"} />
+      <EasyInfo value={"-PatienceDay Clock-"} tag={true} />
       <Main
         fontColor={textLightMode}
         backgroundColor={backgroundLightMode}
       />
-      <EasyInfo value={"©Swiss Army Apps"} />
+      <FixedMenu />
+      <EasyInfo value={"©Swiss Army Apps"} tag={false} />
 
     </>
   );
