@@ -6,6 +6,8 @@ type Props = {
 }
 
 const TopMessage = (props: Props) => {
+  // 500pxでメディアクエリ
+  
   const backgroundLightMode: string = `
     background: #5A72A0;
   `
@@ -19,6 +21,10 @@ const TopMessage = (props: Props) => {
     border: dashed black;
     width: 45rem;
     font-size: 2.6rem;
+    @media (max-width: 500px) {
+      width: 20rem;
+      font-size: 1.1rem;
+    }
     color: black;
     font-weight: bold;
     display: inline-block;

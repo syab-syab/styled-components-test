@@ -25,11 +25,12 @@ function App() {
 
       {/* ライト・ダークモード切替ボタン */}
       <ModeSwichBtn lightOrDark={lightOrDark} toggleVal={toggleLD} />
+        <Main
+          lightOrDark={lightOrDark}
+        />
+        <FixedMenu lightOrDark={lightOrDark} />
 
-      <Main
-        lightOrDark={lightOrDark}
-      />
-      <FixedMenu lightOrDark={lightOrDark} />
+
       <EasyInfo value={"©Swiss Army Apps"} tag={false} />
 
     </>

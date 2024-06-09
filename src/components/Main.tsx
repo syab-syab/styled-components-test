@@ -7,6 +7,7 @@ type Props = {
 }
 
 const Main = (props: Props) => {
+  // 500pxでメディアクエリ
 
   const lightMode: string = `
     color: black;
@@ -29,12 +30,18 @@ const Main = (props: Props) => {
     font-weight: normal;
     margin: 0 auto;
     font-size: 7.2rem;
+    @media (max-width: 500px) {
+      font-size: 3.7rem;
+    }
   `
 
   const SubTitle = styled.h2`
     font-weight: normal;
     margin: 0 auto;
     font-size: 4.8rem
+    @media (max-width: 500px) {
+      font-size: 2.4rem;
+    }
   `
 
   return (

@@ -7,6 +7,7 @@ type Props = {
 }
 
 const ModeSwichBtn = (props: Props) => {
+  // 796pxでメインと被るからメディアクエリで変える
 
   const lightMode: string = `
     color: #FDFFE2;
