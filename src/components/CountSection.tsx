@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import CountItem from './CountItem'
 
 type Props = {
   darkOrLight: boolean
@@ -31,30 +32,16 @@ const CountSection = (props: Props) => {
     }
   `
 
-  // 親コンポーネントのメディアクエリを打ち消し
-  const Item = styled.div`
-    ${props.darkOrLight ? lightMode : darkMode}
-    border: 0.1rem solid black;
-    font-size: 5rem;
-    margin-bottom: 4rem;
-    color: black;
-    @media (max-width: 500px) {
-      font-size: 3.7rem;
-      font-weight: normal;
-      margin-bottom: 2rem;
-    }
-  `
+
   return (
     <Wrapper>
-      <Item>CountItem</Item>
-      <Item>CountItem</Item>
-      <Item>CountItem</Item>
-      <Item>CountItem</Item>
-      <Item>CountItem</Item>
-      <Item>CountItem</Item>
-      <Item>CountItem</Item>
-      <Item>CountItem</Item>
-      <Item>CountItem</Item>
+      {/* 本番環境ではmapで回すから現段階で真偽値は手打ち */}
+      <CountItem darkOrLight={props.darkOrLight} content="XXXX年XX月XX日XX時XX分まで" deadLine={false}></CountItem>
+      <CountItem darkOrLight={props.darkOrLight} content="XXXX年XX月XX日XX時XX分まで" deadLine={true}></CountItem>
+      <CountItem darkOrLight={props.darkOrLight} content="XXXX年XX月XX日XX時XX分まで" deadLine={false}></CountItem>
+      <CountItem darkOrLight={props.darkOrLight} content="XXXX年XX月XX日XX時XX分まで" deadLine={false}></CountItem>
+      <CountItem darkOrLight={props.darkOrLight} content="XXXX年XX月XX日XX時XX分まで" deadLine={false}></CountItem>
+      <CountItem darkOrLight={props.darkOrLight} content="XXXX年XX月XX日XX時XX分まで" deadLine={false}></CountItem>
     </Wrapper>
   )
 }
