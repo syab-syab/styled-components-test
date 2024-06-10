@@ -1,11 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useState } from 'react'
+import AddModal from './Modal/AddModal'
+import HistoryModal from './Modal/HistoryModal'
 
 type Props = {
   lightOrDark: boolean
 }
 
 const FixedMenu = (props: Props) => {
+  // モーダルを追加と履歴の二つを追加
+  const [addModalShow, setAddModalShow] = useState<boolean>(false)
+
+  const toggleAddModal = (): void => {
+    setAddModalShow(!addModalShow)
+  }
+
+  const [historyModalShow, setHistoryModalShow] = useState<boolean>(false)
+
+  const toggleHistoryModal = (): void => {
+    setHistoryModalShow(!historyModalShow)
+  }
 
   const lightMode: string = `
     color: #FDFFE2;
@@ -50,9 +65,11 @@ const FixedMenu = (props: Props) => {
     <>
       <FixedMenu>
         <MenuItem>リンク</MenuItem>
-        <MenuItem>追加</MenuItem>
-        <MenuItem>履歴</MenuItem>
+        <MenuItem onClick={toggleAddModal}>追加</MenuItem>
+        <MenuItem onClick={toggleHistoryModal}>履歴</MenuItem>
       </FixedMenu>
+      <AddModal show={addModalShow} onClickFunc={toggleAddModal} />
+      <HistoryModal show={historyModalShow} onClickFunc={toggleHistoryModal} />
     </>
   )
 }

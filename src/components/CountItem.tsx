@@ -1,16 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
+// import CountItemModal from './Modal/CountItemModal'
+// import { useState } from 'react'
 
 type Props= {
   darkOrLight: boolean,
   deadLine: boolean,
   // 期限or記録
-  content: string
+  content: string,
+  // モーダルの開閉
+  onClickFunc: () => void
 }
 
 // 履歴からでも呼び出せるようにする
 
 const CountItem = (props: Props) => {
+
 
   const lightModeHead: string = `
     background: #FFFE71;
@@ -69,7 +74,7 @@ const CountItem = (props: Props) => {
   `
 
   return (
-    <Item>
+    <Item onClick={props.onClickFunc}>
       <Heading>忍耐事項: ビール</Heading>
       <Content>{props.content}</Content>
     </Item>
