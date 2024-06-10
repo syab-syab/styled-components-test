@@ -30,11 +30,24 @@ const Main = (props: Props) => {
     overflow-y: visible;
   `
 
+  const hiddenScrollBar: string =`
+    &::-webkit-scrollbar{
+      display:none;
+    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    text-align: center;
+  `
+
   // heightは画面全コンテンツが画面内に収まるように
   // 画面内スクロールはこっちで指定した方が良いかも
+  // スクロールバーも消す(ブラウザごとに設定が異なる)
   const Wrapper = styled.main`
     height: 90vh;
     ${validateData ? scroll : nonScroll}
+    ${hiddenScrollBar}
+
     text-align: center;
     ${props.lightOrDark ? lightMode : darkMode};
     margin: 0 auto;
