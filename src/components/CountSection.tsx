@@ -8,6 +8,34 @@ type Props = {
   darkOrLight: boolean
 }
 
+
+
+const lightMode: string = `
+background: #5A72A0;
+`
+
+const darkMode: string = `
+background: #FDFFE2;
+`
+
+// 900pxくらいでpaddingが限界
+// とりあえずメディアクエリは暫定
+const Wrapper = styled.section`
+padding: 0 20rem;
+@media (max-width: 900px) {
+  padding: 0 10rem;
+}
+@media (max-width: 800px) {
+  padding: 0 7rem;
+}
+@media (max-width: 700px) {
+  padding: 0 6rem;
+}
+@media (max-width: 500px) {
+  padding: 0 3rem;
+}
+`
+
 const CountSection = (props: Props) => {
   // モーダルを追加する
   // const [modalShow, setModalShow] = useState<boolean>(false)
@@ -16,32 +44,6 @@ const CountSection = (props: Props) => {
   const toggleModal = (): void => {
     setModalShow(!modalShow)
   }
-
-
-  const lightMode: string = `
-    background: #5A72A0;
-  `
-
-  const darkMode: string = `
-    background: #FDFFE2;
-  `
-  // 900pxくらいでpaddingが限界
-  // とりあえずメディアクエリは暫定
-  const Wrapper = styled.section`
-    padding: 0 20rem;
-    @media (max-width: 900px) {
-      padding: 0 10rem;
-    }
-    @media (max-width: 800px) {
-      padding: 0 7rem;
-    }
-    @media (max-width: 700px) {
-      padding: 0 6rem;
-    }
-    @media (max-width: 500px) {
-      padding: 0 3rem;
-    }
-  `
 
 
   return (

@@ -6,6 +6,10 @@ import FixedMenu from './FixedMenu';
 // import ModeSwichBtn from './components/ModeSwichBtn';
 import ModeSwichBtn from './ModeSwichBtn';
 
+const Wrapper = styled.main`
+height: 100vh;
+`
+
 const MainWrapper = () => {
   // コンポーネントに渡すのはスタイルではなく
   // ダークモードか否かの有無だけにする
@@ -18,11 +22,9 @@ const MainWrapper = () => {
     setlightOrDark(!lightOrDark)
   }
 
-  const MainWrapper = styled.main`
-    height: 100vh;
-  `
+
   return (
-    <MainWrapper>
+    <Wrapper>
       {/* ライト・ダークモード切替ボタン */}
       <ModeSwichBtn lightOrDark={lightOrDark} toggleVal={toggleLD} />
       {/* Main以下を新規にコンポーネントを作成してheightを100vhにした方が良いかも */}
@@ -30,7 +32,7 @@ const MainWrapper = () => {
         lightOrDark={lightOrDark}
       />
       <FixedMenu lightOrDark={lightOrDark} />
-    </MainWrapper>
+    </Wrapper>
   )
 }
 

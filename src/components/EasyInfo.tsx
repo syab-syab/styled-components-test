@@ -6,6 +6,8 @@ type Props = {
   tag: boolean
 }
 
+// 外への定義は後回し
+
 // ヘッダーとフッター用
 const EasyInfo = (props: Props) => {
   // 条件分岐でタグを選択

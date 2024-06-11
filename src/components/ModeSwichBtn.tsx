@@ -6,39 +6,41 @@ type Props = {
   toggleVal: React.MouseEventHandler<HTMLButtonElement>
 }
 
-const ModeSwichBtn = (props: Props) => {
-  // 796pxでメインと被るからメディアクエリで変える
+// 外に定義してみる
+const lightMode: string = `
+color: #FDFFE2;
+background: #223A70;
+`
 
-  const lightMode: string = `
-    color: #FDFFE2;
-    background: #223A70;
-  `
+const darkMode: string = `
+ color: black;
+ background: #FDFFE2;
+`
 
-  const darkMode: string = `
-     color: black;
-     background: #FDFFE2;
-  `
+// 796pxでメインと被るからメディアクエリで変える
 
-  const Button = styled.button`
-    ${props.lightOrDark ? lightMode : darkMode}
-    font-size: 2.7rem;
-    border: black solid;
-    border-radius: 0.4rem;
+const Button = styled.button<{isLightOrDark: boolean}>`
+  ${props => props.isLightOrDark ? lightMode : darkMode}
+  font-size: 2.7rem;
+  border: black solid;
+  border-radius: 0.4rem;
+  position: fixed;
+  top: 5rem;
+  right: 10rem;
+  @media (max-width: 796px) {
+    font-size: 1.6rem;
+    font-weight: bold;
     position: fixed;
-    top: 5rem;
-    right: 10rem;
-    @media (max-width: 796px) {
-      font-size: 1.6rem;
-      font-weight: bold;
-      position: fixed;
-      top: 3rem;
-      right: 2rem;
-    }
-  `
+    top: 3rem;
+    right: 2rem;
+  }
+`
+
+const ModeSwichBtn = (props: Props) => {
 
   return (
     <>
-      <Button onClick={props.toggleVal}>{props.lightOrDark ? "ライト" : "ダーク"}</Button>
+      <Button isLightOrDark={props.lightOrDark} onClick={props.toggleVal}>{props.lightOrDark ? "ライト" : "ダーク"}</Button>
     </>
   )
 }
