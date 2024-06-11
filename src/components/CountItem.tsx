@@ -33,11 +33,11 @@ const CountItem = (props: Props) => {
     background: #97A0B2;
   `
 
-  const suceedColorHead: string = `
+  const succeedColorHead: string = `
     background: #FF5B00;
   `
 
-  const suceedColorContent: string = `
+  const succeedColorContent: string = `
     background: #FD7327;
   `
 
@@ -56,7 +56,7 @@ const CountItem = (props: Props) => {
 
   // 忍耐の内容
   const Heading = styled.p`
-    ${props.deadLine ? suceedColorHead : props.darkOrLight ? lightModeHead : darkModeHead}
+    ${props.deadLine ? succeedColorHead : props.darkOrLight ? lightModeHead : darkModeHead}
     margin: 0;
     font-size: 1.5rem;
     font-weight: bold;
@@ -66,7 +66,7 @@ const CountItem = (props: Props) => {
 
   // 忍耐の期限(履歴では記録)
   const Content = styled.p`
-    ${props.deadLine ? suceedColorContent : props.darkOrLight ? lightModeContent : darkModeContent}
+    ${props.deadLine ? succeedColorContent : props.darkOrLight ? lightModeContent : darkModeContent}
     margin: 0;
     font-size: 1.5rem;
     font-weight: bold;

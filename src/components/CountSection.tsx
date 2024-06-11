@@ -10,7 +10,8 @@ type Props = {
 
 const CountSection = (props: Props) => {
   // モーダルを追加する
-  const [modalShow, setModalShow] = useState<boolean>(false)
+  // const [modalShow, setModalShow] = useState<boolean>(false)
+  const [modalShow, setModalShow] = useState<boolean>(true)
 
   const toggleModal = (): void => {
     setModalShow(!modalShow)
@@ -54,7 +55,8 @@ const CountSection = (props: Props) => {
       <CountItem onClickFunc={toggleModal} darkOrLight={props.darkOrLight} content="XXXX年XX月XX日XX時XX分まで" deadLine={false}></CountItem>
 
       {/* <button onClick={toggleModal}>モーダルテスト</button> */}
-      <CountItemModal show={modalShow} onClickFunc={toggleModal} />
+      {/* CountItemModalのdeadLineは仮置き */}
+      <CountItemModal show={modalShow} deadLine={false} darkOrLight={props.darkOrLight} onClickFunc={toggleModal} />
     </Wrapper>
   )
 }
