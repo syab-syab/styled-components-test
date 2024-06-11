@@ -6,26 +6,37 @@ type Props = {
   tag: boolean
 }
 
-// 外への定義は後回し
+// 条件分岐でタグを選択
+const InfoHeader = styled.header`
+background: black;
+color: #FDFFE2;
+text-align: center;
+`
+
+const InfoFooter = styled.footer`
+background: black;
+color: #FDFFE2;
+text-align: center;
+`
 
 // ヘッダーとフッター用
 const EasyInfo = (props: Props) => {
-  // 条件分岐でタグを選択
-  // true = header, false = footer
-  const tag: any = props.tag ? styled.header : styled.footer
 
-  // 後でheaderにも出来るように書き直す
-  const InfoBar = tag`
-  background: black;
-  color: #FDFFE2;
-  text-align: center;
-  `
-
+  if(props.tag) {
+    return (
+      <InfoHeader>
+        <span>{props.value}</span>
+      </InfoHeader>
+    )
+  } else {
   return (
-    <InfoBar>
+    <InfoFooter>
       <span>{props.value}</span>
-    </InfoBar>
-  )
+    </InfoFooter>
+    )
+
+  }
+
 }
 
 export default EasyInfo

@@ -38,8 +38,8 @@ padding: 0 20rem;
 
 const CountSection = (props: Props) => {
   // モーダルを追加する
-  // const [modalShow, setModalShow] = useState<boolean>(false)
-  const [modalShow, setModalShow] = useState<boolean>(true)
+  const [modalShow, setModalShow] = useState<boolean>(false)
+  // const [modalShow, setModalShow] = useState<boolean>(true)
 
   const toggleModal = (): void => {
     setModalShow(!modalShow)

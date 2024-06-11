@@ -66,8 +66,8 @@ const FixedMenu = (props: Props) => {
         <MenuItem isLightOrDark={props.lightOrDark} onClick={toggleAddModal}>追加</MenuItem>
         <MenuItem isLightOrDark={props.lightOrDark} onClick={toggleHistoryModal}>履歴</MenuItem>
       </Menu>
-      <AddModal show={addModalShow} onClickFunc={toggleAddModal} />
-      <HistoryModal show={historyModalShow} onClickFunc={toggleHistoryModal} />
+      <AddModal show={addModalShow} onClickFunc={toggleAddModal} lightOrDark={props.lightOrDark} />
+      <HistoryModal show={historyModalShow} onClickFunc={toggleHistoryModal} lightOrDark={props.lightOrDark} />
     </>
   )
 }

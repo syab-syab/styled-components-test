@@ -79,7 +79,7 @@ const CountItem = (props: Props) => {
       <Item onClick={props.onClickFunc}>
         <Heading isDeadLine={props.deadLine} isDarkOrLight={props.darkOrLight}>忍耐事項: ビール</Heading>
         <Content isDeadLine={props.deadLine} isDarkOrLight={props.darkOrLight}>{props.content}</Content>
-      </Item>    
+      </Item>
     </>
 
   )
