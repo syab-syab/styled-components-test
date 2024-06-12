@@ -14,13 +14,7 @@ type Props = {
 // 文字色#FDFFE2
 // 背景#223A70,
 const lightModeBGColor: string = `
-  background: #223A70;
-  color: #FDFFE2;
-`
-// 閉じるボタン背景#FDFFE2(文字色黒)
-const lightModeBTNColor: string = `
-  background: #FDFFE2;
-  color: black;
+  background: #F5FFA2;
 `
 
 // ダークモード
@@ -28,19 +22,8 @@ const lightModeBTNColor: string = `
 // 背景色#FDFFE2(または#FFFE71)
 const darkModeBGColor: string = `
   background: #223A70;
-  color: black;
-`
-// 閉じるボタン背景#5A72A0(文字色黒)
-const darkModeBTNColor: string = `
-  background: #5A72A0;
-  color: black;
 `
 
-// ライトダーク共にスタートボタン背景#FF5B00(文字色黒) 
-const startBTNColor: string = `
-  background: #FF5B00;
-  color: black;
-`
 
 const Wrapper = styled.div`
 position:fixed;
@@ -56,7 +39,7 @@ justify-content: center;
 `
 
 const Modal = styled.div<{isLightOrDark: boolean}>`
-color: black;
+color: ${props =>  props.isLightOrDark ? 'black' : '#FDFFE2'};
 z-index:2;
 width:50%;
 padding: 1em;
@@ -78,14 +61,14 @@ border-radius: 0.8rem;
 }
 `
 
-const CloseButton = styled.div<{isLightOrDark: boolean}>`
+const CloseButton = styled.div`
 font-size: 3rem;
 width: 15rem;
 margin: 0 auto;
 border: 0.2rem black solid;
 border-radius: 0.8rem;
 margin-bottom: 1rem;
-${props => props.isLightOrDark ? lightModeBTNColor : darkModeBTNColor}
+
 `
 
 const StartButton = styled.div`
@@ -95,7 +78,6 @@ const StartButton = styled.div`
   border: 0.2rem black solid;
   border-radius: 0.8rem;
   margin-bottom: 1rem;
-  ${startBTNColor}
 `
 
 const MessageWrapper = styled.div`
@@ -114,15 +96,18 @@ const MessageSub = styled.p`
   font-size: 2rem;
 `
 
-const ContentInput = styled.input`
+const ContentInput = styled.input<{isLightOrDark: boolean}>`
   margin: 1rem;
+  ${props => props.isLightOrDark ? lightModeBGColor : darkModeBGColor}
 `
-const DayInput = styled.input`
+const DayInput = styled.input<{isLightOrDark: boolean}>`
   margin: 1rem;
+  ${props => props.isLightOrDark ? lightModeBGColor : darkModeBGColor}
 `
 
-const TimeInput = styled.input`
+const TimeInput = styled.input<{isLightOrDark: boolean}>`
   margin: 1rem;
+  ${props => props.isLightOrDark ? lightModeBGColor : darkModeBGColor}
 `
 
 const AddModal = (props: Props) => {
@@ -135,17 +120,17 @@ const AddModal = (props: Props) => {
             <MessageHeading>
               何を我慢する？
             </MessageHeading>
-            <ContentInput type='text' />
+            <ContentInput type='text' isLightOrDark={props.lightOrDark} />
             <MessageSub>
               どのくらい我慢する？
             </MessageSub>
-            <DayInput type='text' />日
+            <DayInput type='text'  isLightOrDark={props.lightOrDark} />日
             <br />
             {/* ↓は本番ではselect */}
-            <TimeInput type='text' />時間
+            <TimeInput type='text' isLightOrDark={props.lightOrDark} />時間
           </MessageWrapper>
-          <StartButton>スタート</StartButton>
-          <CloseButton isLightOrDark={props.lightOrDark} onClick={props.onClickFunc}>閉じる</CloseButton>
+          <StartButton>始める</StartButton>
+          <CloseButton onClick={props.onClickFunc}>閉じる</CloseButton>
         </Modal>
       </Wrapper>
     )
