@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import CountItem from '../CountItem'
 
 type Props = {
   show: boolean,
@@ -74,8 +75,20 @@ margin: 0;
 font-size: 4rem;
 `
 
+const ItemWrapper = styled.div`
+  overflow-y: scroll;
+  height: 70vh;
+`
+
 const HistoryModal = (props: Props) => {
 
+  // counteritemをクリックしたら
+  // 本番では削除するかどうかを聞く
+  // それと詳細を表示(confirmとかで)
+  // 本番だと引数でidとかが必要になると思う
+  const historyDelete = (): void => {
+    alert('削除しますテスト')
+  }
 
   if (props.show) {
     return (
@@ -86,6 +99,14 @@ const HistoryModal = (props: Props) => {
             履歴
           </MessageHeading>
         </MessageWrapper>
+        <ItemWrapper>
+        <CountItem onClickFunc={historyDelete} history={true} lightOrDark={props.lightOrDark} content="ビール" count="XXXX年XX月XX日XX時XX分" deadLine={false} />
+        <CountItem onClickFunc={historyDelete} history={true} lightOrDark={props.lightOrDark} content="ビール" count="XXXX年XX月XX日XX時XX分" deadLine={true} />
+        <CountItem onClickFunc={historyDelete} history={true} lightOrDark={props.lightOrDark} content="ビール" count="XXXX年XX月XX日XX時XX分" deadLine={false} />
+        <CountItem onClickFunc={historyDelete} history={true} lightOrDark={props.lightOrDark} content="ビール" count="XXXX年XX月XX日XX時XX分" deadLine={false} />
+        <CountItem onClickFunc={historyDelete} history={true} lightOrDark={props.lightOrDark} content="ビール" count="XXXX年XX月XX日XX時XX分" deadLine={false} />
+        <CountItem onClickFunc={historyDelete} history={true} lightOrDark={props.lightOrDark} content="ビール" count="XXXX年XX月XX日XX時XX分" deadLine={false} />
+        </ItemWrapper>
         <Button onClick={props.onClickFunc}>閉じる</Button>
       </Modal>
     </Wrapper>

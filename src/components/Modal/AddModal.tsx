@@ -96,17 +96,21 @@ const MessageSub = styled.p`
   font-size: 2rem;
 `
 
+// input類のサイズは本番で
 const ContentInput = styled.input<{isLightOrDark: boolean}>`
   margin: 1rem;
+  border: 0.1rem solid;
   ${props => props.isLightOrDark ? lightModeBGColor : darkModeBGColor}
 `
 const DayInput = styled.input<{isLightOrDark: boolean}>`
   margin: 1rem;
+  border: 0.1rem solid;
   ${props => props.isLightOrDark ? lightModeBGColor : darkModeBGColor}
 `
 
 const TimeInput = styled.input<{isLightOrDark: boolean}>`
   margin: 1rem;
+  border: 0.1rem solid;
   ${props => props.isLightOrDark ? lightModeBGColor : darkModeBGColor}
 `
 
