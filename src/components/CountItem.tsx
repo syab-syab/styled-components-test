@@ -31,13 +31,10 @@ const darkModeContent: string = `
 background: #97A0B2;
 `
 
-const succeedColorHead: string = `
-background: #FF5B00;
+const succeedColor: string = `
+background: linear-gradient(to right, #FF3131, #FF914D);
 `
 
-const succeedColorContent: string = `
-background: #FD7327;
-`
 
 // 親コンポーネントのメディアクエリを打ち消し
 const Item = styled.div`
@@ -55,7 +52,7 @@ color: black;
 // 下の二つにエラー出てるけど後回し
 // 忍耐の内容
 const Heading = styled.p<{isDeadLine: boolean, isLightOrDark: boolean}>`
-  ${props => props.isDeadLine ? succeedColorHead : props.isLightOrDark ? lightModeHead : darkModeHead}
+  ${props => props.isDeadLine ? succeedColor : props.isLightOrDark ? lightModeHead : darkModeHead}
   margin: 0;
   font-size: 1.5rem;
   font-weight: bold;
@@ -65,7 +62,7 @@ const Heading = styled.p<{isDeadLine: boolean, isLightOrDark: boolean}>`
 
 // 忍耐の期限(履歴では記録)
 const Content = styled.p<{isDeadLine: boolean, isLightOrDark: boolean}>`
-  ${props => props.isDeadLine ? succeedColorContent : props.isLightOrDark ? lightModeContent : darkModeContent}
+  ${props => props.isDeadLine ? succeedColor : props.isLightOrDark ? lightModeContent : darkModeContent}
   margin: 0;
   font-size: 1.5rem;
   font-weight: bold;
@@ -77,7 +74,7 @@ const CountItem = (props: Props) => {
   return (
     <>
       <Item onClick={props.onClickFunc}>
-        <Heading isDeadLine={props.deadLine} isLightOrDark={props.lightOrDark}>忍耐事項: ビール</Heading>
+        <Heading isDeadLine={props.deadLine} isLightOrDark={props.lightOrDark}>ビール</Heading>
         <Content isDeadLine={props.deadLine} isLightOrDark={props.lightOrDark}>{props.content}</Content>
       </Item>
     </>

@@ -14,31 +14,23 @@ type Props = {
 
 // fontの色は共通(ボタンだけ違う)
 const succeedBGColor: string =`
-background: #FF5B00;
+background: linear-gradient(to right, #FF3131, #FF914D);
 `
 
 const lightModeBGColor: string =`
-background: #5A72A0;
+background: #F5FFA2;
 `
 
 const lightModeCDSColor: string =`
-background: #F5FFA2;
-`
-
-const lightModeBTNColor: string =`
-background: #223A70;
-color: #FFFFFF;
+background: #FDFFE2;
 `
 
 const darkModeBGColor: string =`
-background: #FFFE71;
+background: #5A72A0;
+color: #FDFFE2;
 `
 const darkModeCDSColor: string =`
-background: #5A72A0;
-`
-
-const darkModeBTNColor: string =`
-background: #F5FFA2;
+background: #97A0B2;
 `
 
 const Wrapper = styled.div`
@@ -55,7 +47,7 @@ justify-content: center;
 `
 
 const Modal = styled.div<{isDeadLine: boolean, isLightOrDark: boolean}>`
-color: black;
+color: ${props => props.isLightOrDark ? "black" : "#FDFFE2"};
 z-index:2;
 width:50%;
 padding: 1em;
@@ -84,15 +76,15 @@ margin: 0 auto;
 border: 0.2rem black solid;
 border-radius: 0.8rem;
 margin-bottom: 1rem;
-${props => props.isLightOrDark ? lightModeBTNColor : darkModeBTNColor}
 `
 
-const CountdownSpace = styled.div<{isLightOrDark: boolean}>`
-border: 0.2rem black solid;
+// 
+const CountdownSpace = styled.div<{isDeadLine: boolean, isLightOrDark: boolean}>`
+
 border-radius: 0.8rem;
 padding: 1rem;
 margin: 1rem 0;
-${props => props.isLightOrDark ? lightModeCDSColor : darkModeCDSColor}
+${props => props.isDeadLine ? succeedBGColor : props.isLightOrDark ? lightModeCDSColor : darkModeCDSColor}
 `
 
 const MessageWrapper = styled.div`
@@ -138,7 +130,7 @@ const CountItemModal = (props: Props) => {
             耐えている！
           </MessageSub>
         </MessageWrapper>
-        <CountdownSpace isLightOrDark={props.lightOrDark}>
+        <CountdownSpace isDeadLine={props.deadLine} isLightOrDark={props.lightOrDark}>
           {props.deadLine ? 
             <><MessageCount>目標達成</MessageCount><MessageCount>おめでとう！</MessageCount></> : 
             <><MessageSub>目標まであと</MessageSub><MessageCount>XX日</MessageCount><MessageCount>XX時間XX分XX秒</MessageCount></>
