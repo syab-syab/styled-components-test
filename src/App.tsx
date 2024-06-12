@@ -7,6 +7,8 @@ import FixedMenu from './components/FixedMenu';
 import ModeSwichBtn from './components/ModeSwichBtn';
 // import MainWrapper from './components/MainWrapper';
 
+
+
 function App() {
 
   // コンポーネントに渡すのはスタイルではなく

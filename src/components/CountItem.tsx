@@ -2,6 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 // import CountItemModal from './Modal/CountItemModal'
 // import { useState } from 'react'
+import { FaClock } from "react-icons/fa6";
+import { FaThumbsUp } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
 
 type Props= {
   lightOrDark: boolean,
@@ -96,17 +99,21 @@ const Icon = styled.div<{isDeadLine: boolean, isLightOrDark: boolean, isHistory:
       props.isDeadLine ? succeedColor : props.isHistory ? historyIconColor : props.isLightOrDark ? lightModeIconColor : darkModeIconColor
   };
   border: 0.1rem solid black;
-  padding: 0 1rem;
+  padding: 1rem 1rem 0 1rem;
   vertical-align: middle;
   font-size: 5rem;
 `
+
+
 
 const CountItem = (props: Props) => {
 
   return (
     <>
       <Item onClick={props.onClickFunc}>
-        <Icon isDeadLine={props.deadLine} isLightOrDark={props.lightOrDark} isHistory={props.history}>{props.deadLine ? "成" : "耐"}</Icon>
+        <Icon isDeadLine={props.deadLine} isLightOrDark={props.lightOrDark} isHistory={props.history}>
+          {props.history ? <FaTrashAlt /> : props.deadLine ? <FaThumbsUp /> : <FaClock />}
+        </Icon>
         <Wrapper>
           <Heading isDeadLine={props.deadLine} isLightOrDark={props.lightOrDark} isHistory={props.history}>{props.content}</Heading>
           <Content isDeadLine={props.deadLine} isLightOrDark={props.lightOrDark} isHistory={props.history}>{props.count}</Content>
