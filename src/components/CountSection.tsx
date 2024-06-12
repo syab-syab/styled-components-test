@@ -5,7 +5,7 @@ import CountItemModal from './Modal/CountItemModal'
 import { useState } from 'react'
 
 type Props = {
-  darkOrLight: boolean
+  lightOrDark: boolean
 }
 
 
@@ -49,16 +49,16 @@ const CountSection = (props: Props) => {
   return (
     <Wrapper>
       {/* 本番環境ではmapで回すから現段階で真偽値は手打ち */}
-      <CountItem onClickFunc={toggleModal} darkOrLight={props.darkOrLight} content="XXXX年XX月XX日XX時XX分まで" deadLine={false}></CountItem>
-      <CountItem onClickFunc={toggleModal} darkOrLight={props.darkOrLight} content="XXXX年XX月XX日XX時XX分まで" deadLine={true}></CountItem>
-      <CountItem onClickFunc={toggleModal} darkOrLight={props.darkOrLight} content="XXXX年XX月XX日XX時XX分まで" deadLine={false}></CountItem>
-      <CountItem onClickFunc={toggleModal} darkOrLight={props.darkOrLight} content="XXXX年XX月XX日XX時XX分まで" deadLine={false}></CountItem>
-      <CountItem onClickFunc={toggleModal} darkOrLight={props.darkOrLight} content="XXXX年XX月XX日XX時XX分まで" deadLine={false}></CountItem>
-      <CountItem onClickFunc={toggleModal} darkOrLight={props.darkOrLight} content="XXXX年XX月XX日XX時XX分まで" deadLine={false}></CountItem>
+      <CountItem onClickFunc={toggleModal} lightOrDark={props.lightOrDark} content="XXXX年XX月XX日XX時XX分まで" deadLine={false}></CountItem>
+      <CountItem onClickFunc={toggleModal} lightOrDark={props.lightOrDark} content="XXXX年XX月XX日XX時XX分まで" deadLine={true}></CountItem>
+      <CountItem onClickFunc={toggleModal} lightOrDark={props.lightOrDark} content="XXXX年XX月XX日XX時XX分まで" deadLine={false}></CountItem>
+      <CountItem onClickFunc={toggleModal} lightOrDark={props.lightOrDark} content="XXXX年XX月XX日XX時XX分まで" deadLine={false}></CountItem>
+      <CountItem onClickFunc={toggleModal} lightOrDark={props.lightOrDark} content="XXXX年XX月XX日XX時XX分まで" deadLine={false}></CountItem>
+      <CountItem onClickFunc={toggleModal} lightOrDark={props.lightOrDark} content="XXXX年XX月XX日XX時XX分まで" deadLine={false}></CountItem>
 
       {/* <button onClick={toggleModal}>モーダルテスト</button> */}
       {/* CountItemModalのdeadLineは仮置き */}
-      <CountItemModal show={modalShow} deadLine={false} darkOrLight={props.darkOrLight} onClickFunc={toggleModal} />
+      <CountItemModal show={modalShow} deadLine={false} lightOrDark={props.lightOrDark} onClickFunc={toggleModal} />
     </Wrapper>
   )
 }

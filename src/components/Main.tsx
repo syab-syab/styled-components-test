@@ -82,7 +82,7 @@ const Main = (props: Props) => {
   if(validateData) {
     return (
       <Wrapper isLightOrDark={props.lightOrDark}>
-        <CountSection darkOrLight={props.lightOrDark} />
+        <CountSection lightOrDark={props.lightOrDark} />
       </Wrapper>
     )
    } else {

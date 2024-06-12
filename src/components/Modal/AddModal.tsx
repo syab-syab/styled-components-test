@@ -55,12 +55,12 @@ align-items: center;
 justify-content: center;
 `
 
-const Modal = styled.div<{isDarkOrLight: boolean}>`
+const Modal = styled.div<{isLightOrDark: boolean}>`
 color: black;
 z-index:2;
 width:50%;
 padding: 1em;
-${props =>  props.isDarkOrLight ? lightModeBGColor : darkModeBGColor}
+${props =>  props.isLightOrDark ? lightModeBGColor : darkModeBGColor}
 border: 0.2rem black solid;
 border-radius: 0.8rem;
 @media (max-width: 1000px) {
@@ -78,14 +78,14 @@ border-radius: 0.8rem;
 }
 `
 
-const CloseButton = styled.div<{isDarkOrLight: boolean}>`
+const CloseButton = styled.div<{isLightOrDark: boolean}>`
 font-size: 3rem;
 width: 15rem;
 margin: 0 auto;
 border: 0.2rem black solid;
 border-radius: 0.8rem;
 margin-bottom: 1rem;
-${props => props.isDarkOrLight ? lightModeBTNColor : darkModeBTNColor}
+${props => props.isLightOrDark ? lightModeBTNColor : darkModeBTNColor}
 `
 
 const StartButton = styled.div`
@@ -130,7 +130,7 @@ const AddModal = (props: Props) => {
   if (props.show) {
     return (
       <Wrapper>
-        <Modal isDarkOrLight={props.lightOrDark}>
+        <Modal isLightOrDark={props.lightOrDark}>
           <MessageWrapper>
             <MessageHeading>
               何を我慢する？
@@ -145,7 +145,7 @@ const AddModal = (props: Props) => {
             <TimeInput type='text' />時間
           </MessageWrapper>
           <StartButton>スタート</StartButton>
-          <CloseButton isDarkOrLight={props.lightOrDark} onClick={props.onClickFunc}>閉じる</CloseButton>
+          <CloseButton isLightOrDark={props.lightOrDark} onClick={props.onClickFunc}>閉じる</CloseButton>
         </Modal>
       </Wrapper>
     )

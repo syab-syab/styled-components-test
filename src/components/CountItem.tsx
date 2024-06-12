@@ -4,7 +4,7 @@ import styled from 'styled-components'
 // import { useState } from 'react'
 
 type Props= {
-  darkOrLight: boolean,
+  lightOrDark: boolean,
   deadLine: boolean,
   // 期限or記録
   content: string,
@@ -54,8 +54,8 @@ color: black;
 
 // 下の二つにエラー出てるけど後回し
 // 忍耐の内容
-const Heading = styled.p<{isDeadLine: boolean, isDarkOrLight: boolean}>`
-  ${props => props.isDeadLine ? succeedColorHead : props.isDarkOrLight ? lightModeHead : darkModeHead}
+const Heading = styled.p<{isDeadLine: boolean, isLightOrDark: boolean}>`
+  ${props => props.isDeadLine ? succeedColorHead : props.isLightOrDark ? lightModeHead : darkModeHead}
   margin: 0;
   font-size: 1.5rem;
   font-weight: bold;
@@ -64,8 +64,8 @@ const Heading = styled.p<{isDeadLine: boolean, isDarkOrLight: boolean}>`
 `
 
 // 忍耐の期限(履歴では記録)
-const Content = styled.p<{isDeadLine: boolean, isDarkOrLight: boolean}>`
-  ${props => props.isDeadLine ? succeedColorContent : props.isDarkOrLight ? lightModeContent : darkModeContent}
+const Content = styled.p<{isDeadLine: boolean, isLightOrDark: boolean}>`
+  ${props => props.isDeadLine ? succeedColorContent : props.isLightOrDark ? lightModeContent : darkModeContent}
   margin: 0;
   font-size: 1.5rem;
   font-weight: bold;
@@ -77,8 +77,8 @@ const CountItem = (props: Props) => {
   return (
     <>
       <Item onClick={props.onClickFunc}>
-        <Heading isDeadLine={props.deadLine} isDarkOrLight={props.darkOrLight}>忍耐事項: ビール</Heading>
-        <Content isDeadLine={props.deadLine} isDarkOrLight={props.darkOrLight}>{props.content}</Content>
+        <Heading isDeadLine={props.deadLine} isLightOrDark={props.lightOrDark}>忍耐事項: ビール</Heading>
+        <Content isDeadLine={props.deadLine} isLightOrDark={props.lightOrDark}>{props.content}</Content>
       </Item>
     </>
 

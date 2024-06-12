@@ -45,12 +45,12 @@ align-items: center;
 justify-content: center;
 `
 
-const Modal = styled.div<{isDarkOrLight: boolean}>`
+const Modal = styled.div<{isLightOrDark: boolean}>`
 color: black;
 z-index:2;
 width:50%;
 padding: 1em;
-${props => props.isDarkOrLight ? lightModeBGColor : darkModeBGColor}
+${props => props.isLightOrDark ? lightModeBGColor : darkModeBGColor}
 border: 0.2rem black solid;
 border-radius: 0.8rem;
 @media (max-width: 1000px) {
@@ -68,14 +68,14 @@ border-radius: 0.8rem;
 }
 `
 
-const Button = styled.div<{isDarkOrLight: boolean}>`
+const Button = styled.div<{isLightOrDark: boolean}>`
 font-size: 3rem;
 width: 15rem;
 margin: 0 auto;
 border: 0.2rem black solid;
 border-radius: 0.8rem;
 margin-bottom: 1rem;
-${props => props.isDarkOrLight ? lightModeBTNColor : darkModeBTNColor}
+${props => props.isLightOrDark ? lightModeBTNColor : darkModeBTNColor}
 `
 
 const MessageWrapper = styled.div`
@@ -94,13 +94,13 @@ const HistoryModal = (props: Props) => {
   if (props.show) {
     return (
     <Wrapper>
-      <Modal isDarkOrLight={props.lightOrDark}>
+      <Modal isLightOrDark={props.lightOrDark}>
         <MessageWrapper>
           <MessageHeading>
             履歴
           </MessageHeading>
         </MessageWrapper>
-        <Button isDarkOrLight={props.lightOrDark} onClick={props.onClickFunc}>閉じる</Button>
+        <Button isLightOrDark={props.lightOrDark} onClick={props.onClickFunc}>閉じる</Button>
       </Modal>
     </Wrapper>
     )
