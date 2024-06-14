@@ -100,17 +100,28 @@ const MessageSub = styled.p`
 const ContentInput = styled.input<{isLightOrDark: boolean}>`
   margin: 1rem;
   border: 0.1rem solid;
+  
+  font-size: 3rem;
+    @media (max-width: 500px) {
+    width: 70%;
+  }
   ${props => props.isLightOrDark ? lightModeBGColor : darkModeBGColor}
 `
 const DayInput = styled.input<{isLightOrDark: boolean}>`
   margin: 1rem;
   border: 0.1rem solid;
+
+  font-size: 3rem;
+  width: 5rem;
   ${props => props.isLightOrDark ? lightModeBGColor : darkModeBGColor}
 `
 
 const TimeInput = styled.input<{isLightOrDark: boolean}>`
   margin: 1rem;
   border: 0.1rem solid;
+
+  font-size: 3rem;
+  width: 5rem;
   ${props => props.isLightOrDark ? lightModeBGColor : darkModeBGColor}
 `
 
@@ -128,10 +139,14 @@ const AddModal = (props: Props) => {
             <MessageSub>
               どのくらい我慢する？
             </MessageSub>
-            <DayInput type='text'  isLightOrDark={props.lightOrDark} />日
-            <br />
+            <div>
+              <DayInput type='text'  isLightOrDark={props.lightOrDark} /><span>日</span>
+            </div>
+            {/* <br /> */}
             {/* ↓は本番ではselect */}
-            <TimeInput type='text' isLightOrDark={props.lightOrDark} />時間
+            <div>
+              <TimeInput type='text' isLightOrDark={props.lightOrDark} /><span>時間</span>
+            </div>
           </MessageWrapper>
           <StartButton>始める</StartButton>
           <CloseButton onClick={props.onClickFunc}>閉じる</CloseButton>
