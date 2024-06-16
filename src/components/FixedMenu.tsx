@@ -45,6 +45,12 @@ font-size: 3rem;
 }
 `
 
+const LinkTag = styled.a<{isLightOrDark: boolean}>`
+  text-decoration: none;
+  color: ${props => props.isLightOrDark ? "#FDFFE2" : "black"};
+  display: block;
+`
+
 const FixedMenu = (props: Props) => {
   // モーダルを追加と履歴の二つを追加
   const [addModalShow, setAddModalShow] = useState<boolean>(false)
@@ -62,8 +68,14 @@ const FixedMenu = (props: Props) => {
   return (
     <>
       <Menu>
-        <MenuItem isLightOrDark={props.lightOrDark}>リンク</MenuItem>
-        <MenuItem isLightOrDark={props.lightOrDark} onClick={toggleAddModal}>追加</MenuItem>
+        <MenuItem isLightOrDark={props.lightOrDark}>
+        <LinkTag isLightOrDark={props.lightOrDark} href='https://homemade-apps.vercel.app/' target='_blank'>
+          リンク
+        </LinkTag>
+        </MenuItem>
+        <MenuItem isLightOrDark={props.lightOrDark} onClick={toggleAddModal}>
+          追加
+        </MenuItem>
         <MenuItem isLightOrDark={props.lightOrDark} onClick={toggleHistoryModal}>履歴</MenuItem>
       </Menu>
       <AddModal show={addModalShow} onClickFunc={toggleAddModal} lightOrDark={props.lightOrDark} />
